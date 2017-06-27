@@ -1,0 +1,22 @@
+p {
+  font-size: 90%;
+}
+
+header {
+  margin-top: 30px;
+}
+
+.text {
+  width: 258px;
+  text-align: center;
+}
+
+.submit {
+  margin-top: 1px;
+  margin-left: 10px;
+  height: 28px;
+}
+
+.first_hr {
+  margin-bottom: 20px
+}
