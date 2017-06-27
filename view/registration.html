@@ -14,26 +14,26 @@
         <table>
           <tr>
             <td> Имя: </td>
-            <td> <input class="text" type="text" name="firstname"> </td>
+            <td> <input class="text" type="text" name="firstname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
           </tr>
           <tr>
             <td> Фамилия: </td>
-            <td> <input class="text" type="text" name="userlastname"> </td>
+            <td> <input class="text" type="text" name="userlastname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
           </tr>
           <tr>
             <td> E-mail: </td>
-            <td> <input class="text" name="useremail" type="text"> </td>
+            <td> <input class="text" name="useremail" type="email" required> </td>
           </tr>
           <tr>
             <td> Пароль: </td>
-            <td> <input class="text" type="text" name="userpassword"> </td>
+            <td> <input class="text" type="text" name="userpassword"  pattern="[A-Za-zА-Яа-яЁё0-9]" required> </td>
           </tr>
          </table>
       <input class="submit" type="submit" value="Зарегистрироваться" name="registration">
       </form>
       <hr>
 
-     <a href="index.html"> На главную </a>
+     <a href="./view/index.html"> На главную </a>
     </center>
   </body>
 </html>
