@@ -1,0 +1,23 @@
+.text {
+  width: 258px;
+  text-align: center;
+}
+
+.project_discr {
+  width: 256px;
+  height: 70px;
+  overflow: hidden;
+  font-family: Arial;
+  font-size: 12px;
+  color: #000000
+}
+
+.submit {
+  margin-top: 1px;
+  margin-left: 10px;
+  height: 28px;
+}
+
+p {
+  font-size: 90%;
+}
