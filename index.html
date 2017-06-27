@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+./<!DOCTYPE html>
 <html>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -11,10 +11,10 @@
       <hr>
       <h2> Авторизация </h2>
       <form accept-charset="utf-8">
-      <input class="text" type="text" placeholder="Логин" name="useremail"><br>
-      <input class="text" type="password" placeholder="Пароль" name="userpassword"><br>
+      <input class="text" type="email" placeholder="Логин" name="useremail" required><br>
+      <input class="text" type="password" placeholder="Пароль" name="userpassword" required pattern="[A-Za-zА-Яа-яЁё0-9]"><br>
       <input class="submit" type="button" value="Войти"
-             onclick="window.location = 'mainpage.html';" name="autorization">
+             onclick="window.location = './view/mainpage.html';" name="autorization">
       </form>
       <hr>
 
