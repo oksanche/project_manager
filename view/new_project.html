@@ -4,25 +4,25 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>Новый проект</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/new_project.css">
-	<script src="../js/controllers/user/textarea_resize.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
 </head>
 <body>
-	<center>
-		<header><h1>Создание нового проекта</h1></header><br>
-		<p>Введите все данные и нажмите кнопку "Создать"</p>
-		<hr class="first_hr">
-		<form method = "POST" accept-charset="utf-8">
-			<input class="project_name text" type = "text" maxlength="50" autofocus required placeholder="Введите название проекта"><br><br>
-			<textarea class = "project_discr text" rows="2" maxlength="275" placeholder="Введите описание проекта" onkeyup="textarea_resize(event, 15, 2);"></textarea><br><br>
-			<p>Участники проекта:</p>
-			<input class="text" type="text" autocomplete="off" placeholder="Введите имя">
-			<p><a href="">Сергей Перепечко</a><input class="submit" type="button" value="Исключить"></p>
-			<p><a href="">Михаил Крышень</a><input class = "submit" type="button" value="Исключить"></p>
-			<br><input class="submit" type="button" value = "Создать"><br><br>
-			<hr>
-		</form>
-	</center>
+	<div class="main_div">
+		<center>
+			<br><header class="header"><h1>Создание нового проекта</h1></header><br>
+			<p class="myp">Введите данные и нажмите кнопку "Создать проект"</p>
+			<hr class="first_hr">
+			<form method = "POST" accept-charset="utf-8">
+				<input class="text" type = "text" maxlength="50" autofocus required placeholder="Введите название проекта"><br><br>	
+				<p class="myp">Добавить участников:</p>
+				<input class="text" type="text" autocomplete="off" placeholder="Введите имя">
+				<p class="myp"><a class="mya" src="">Сергей Перепечко</a><input class="submit" type="button" value="Исключить"></p>
+				<p class="myp"><a class="mya" src="">Михаил Крышень</a><input class = "submit" type="button" value="Исключить"></p>
+				<br><br><input class="submit create_proj" type="button" value = "Создать проект"><br><br>
+				<hr>
+			</form>
+		</center>
+	</div>
 </body>
 </html>

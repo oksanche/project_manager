@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel="stylesheet" type="text/css" href="../css/registration.css">
-  <title>Registration</title>
-  <body>
-    <header><h1>Регистрация</h1></header>
-
-    <center class="center">
-      <p>Пожалуйста, заполните все поля</p>
-      <hr>
-      <form accept-charset="utf-8" method = "POST"> 
-        <table>
-          <tr>
-            <td> Имя: </td>
-            <td> <input class="text" type="text" name="firstname"  pattern="[A-Za-zА-Яа-яЁё]{1,255}" required> </td>
-          </tr>
-          <tr>
-            <td> Фамилия: </td>
-            <td> <input class="text" type="text" name="lastname"  pattern="[A-Za-zА-Яа-яЁё]{1,255}" required> </td>
-          </tr>
-          <tr>
-            <td> E-mail: </td>
-            <td> <input class="text" name="email" type="email" required> </td>
-          </tr>
-          <tr>
-            <td> Пароль: </td>
-            <td> <input class="text" type="password" name="password"  pattern="[A-Za-zА-Яа-яЁё0-9]{2,255}" required> </td>
-          </tr>
-         </table>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/registration.css">
+<title>Регистрация</title>
+<body>
+  <header><h1>Регистрация</h1></header>
+  <center class="center">
+    <p>Пожалуйста, заполните все поля</p>
+    <hr>
+    <form accept-charset="utf-8">
+      <table>
+        <tr>
+          <td> Имя: </td>
+          <td> <input class="text" type="text" name="firstname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
+        </tr>
+        <tr>
+          <td> Фамилия: </td>
+          <td> <input class="text" type="text" name="userlastname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
+        </tr>
+        <tr>
+          <td> E-mail: </td>
+          <td> <input class="text" name="useremail" type="email" required> </td>
+        </tr>
+        <tr>
+          <td> Пароль: </td>
+          <td> <input class="text" type="text" name="userpassword"  pattern="[A-Za-zА-Яа-яЁё0-9]{255}" required> </td>
+        </tr>
+      </table>
       <input class="submit" type="submit" value="Зарегистрироваться" name="registration">
-      </form>
-      <hr>
-
-     <a href="/login"> На главную </a>
-    </center>
-  </body>
+    </form>
+    <hr>
+    <a href="./view/index.html"> На главную </a>
+  </center>
+</body>
 </html>

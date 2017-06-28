@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html>
+<head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
   <title>Личный кабинет</title>
-  <style>
-  </style>
-  <body>
-    <header></header>
-        <h3 class="logo">Имя Фамилия</h3>
-	<h3 class="headh">ProgectManager</h3>
-	<p class="headp"><a href="/logout">ВЫЙТИ ИЗ СИСТЕМЫ</a></p>
-	
-<nav id="cd-vertical-nav" >
-    <ul>
-        <li> Создать проект</li>
-		<li>Участие
-		<ul>
-            <li> Проект 1</li>
-		    <li>Проект 2</li>
-		    <li>Проект 3</li>
-	    </ul></li>
-		<li>Управление
-		<ul>
-            <li>Проект 1</li>
-		    <li>Проект 2</li>
-		    <li>Проект 3</li>
-	    </ul></li>
-	 </ul>
-</nav>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script language="javascript" type="text/javascript">
+  function load_administration() {
+    $('#content').load('administration.html');
+  }
+  function load_statistics() {
+    $('#content').load('statistics.html'); 
+  }
+  function load_tasks() {
+    $('#content').load('tasks.html');
+  }
+  function load_new_project() {
+    $('#content').load('new_project.html');
+  }
+</script>
+</head>
+<body>
+  <header class="myheader">
+    <a onclick="load_administration()" class="mybut">Управление</a>
+    <a onclick="load_statistics()" class="mybut">Статистика</a>
+    <a onclick="load_tasks()" class="mybut ">Задачи</a></header>
+    <h3 class="logo">Имя Фамилия</h3>
+    <h3 class="headh">ProgectManager</h3>
+    <p class="headp myp"><a class="mybut" href="/logout">ВЫЙТИ</a></p>
 
-<form  class="search">>
-   <input type="search" class="text"  name="q"  pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
-   <input type="submit" value="Найти"></p>
-</form>
+    <nav id="cd-vertical-nav">
+      <br><br>
+      <ul>
+        <li onclick="load_new_project()">Создать проект</li>
+        <li>Участие
+          <ul>
+          <li>Проект 1</li>
+            <li>Проект 2</li>
+            <li>Проект 3</li>
+          </ul></li>
+          <li>Управление
+            <ul>
+              <li>Проект 1</li>
+              <li>Проект 2</li>
+              <li>Проект 3</li>
+            </ul></li>
+          </ul>
+        </nav>
 
-  </body>
-</html>
+        <form class="search">
+          <input type="search" id="mytext" name="q" pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
+          <input type="submit" value="Найти"></p>
+        </form>
+
+        <div id="content">
+          
+        </div>
+
+      </body>
+      </html>

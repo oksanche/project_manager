@@ -1,9 +1,17 @@
-p {
+header {
+  margin-top: 40px;
+}
+
+.myp {
   font-size: 90%;
 }
 
-header {
-  margin-top: 30px;
+.create_proj {
+	width: 150px;
+}
+
+.main_div {
+	margin-left: 270px;
 }
 
 .text {
@@ -19,4 +27,23 @@ header {
 
 .first_hr {
   margin-bottom: 20px
+}
+
+.mya:link {
+	text-decoration: none;
+	color: black;
+}
+
+.mya:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.mya:active {
+	text-decoration: none;
+	color: black;
+}
+
+.mya:hover {
+	color: blue;
 }

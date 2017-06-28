@@ -3,8 +3,7 @@ body {
 	color: #363636;
 }
 
-header{
-	margin-top: 130px;
+header {
 	text-align: center;
 }
 
@@ -18,14 +17,15 @@ hr {
 }
 
 p {
-	font-size: 75%;
+	font-size: 90%;
 }
 
-form{
+form {
 	margin-bottom: 50px;
 }
 
 .text {
+	text-align: center;
 	border: 1px solid #cccccc; 
 	border-radius: 4px; 
 	background: #ffffff !important; 
@@ -64,5 +64,5 @@ A:active {
 }
 
 A:hover {
-	color: red;
+	color: black;
 }

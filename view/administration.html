@@ -7,19 +7,21 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 </head>
 <body>
-	<center>
-		<header><h1>Управление проектом</h1></header><br>
-		<p>Измените или удалите проект</p>
-		<hr class="first_hr">
-		<form method = "POST" accept-charset="utf-8">
-			<input class="text" type="text" autocomplete="off" placeholder="Введите новое название"><br><br>
-			<p>Участники проекта:</p>
-			<input class="text" type="text" autocomplete="off" placeholder="Введите имя">
-			<p><a href="">Сергей Перепечко</a><input class="submit" type="button" value="Исключить"></p>
-			<p><a href="">Михаил Крышень</a><input class = "submit" type="button" value="Исключить"></p>
-			<br><input class="submit" type = "submit" value = "Удалить"><br><br>
-			<hr>
-		</form>
-	</center>
+	<div class="main_div">
+		<center>
+			<br><header class="header"><h1>Управление проектом</h1></header><br>
+			<p class="myp">Измените или удалите проект</p>
+			<hr class="first_hr">
+			<form method = "POST" accept-charset="utf-8">
+				<input class="text" type="text" autocomplete="off" placeholder="Введите новое название"><br><br>
+				<p class="myp">Добавить участников:</p>
+				<input class="text" type="text" autocomplete="off" placeholder="Введите имя">
+				<p class="myp"><a class="mya">Сергей Перепечко</a><input class="submit" type="button" value="Исключить"></p>
+				<p class="myp"><a class="mya">Михаил Крышень</a><input class = "submit" type="button" value="Исключить"></p>
+				<br><br><input class="submit create_proj" type = "submit" value = "Удалить проект"><br><br>
+				<hr>
+			</form>
+		</center>
+	</div>
 </body>
 </html>
