@@ -34,7 +34,20 @@ app.get('/registration', function (req, res) {
    res.sendFile( __dirname + "/view/" +"registration.html" ); 
 }) 
 
- 
+ app.get('/statistics.html', function (req, res) {   
+   res.sendFile( __dirname + "/view/" +"statistics.html" ); 
+}) 
+
+ app.get('/new_project.html', function (req, res) {   
+   res.sendFile( __dirname + "/view/" +"new_project.html" ); 
+}) 
+ app.get('/tasks.html', function (req, res) {   
+   res.sendFile( __dirname + "/view/" +"tasks.html" ); 
+}) 
+ app.get('/administration.html', function (req, res) {   
+   res.sendFile( __dirname + "/view/" +"administration.html" ); 
+}) 
+
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function (req, res) {   
 
