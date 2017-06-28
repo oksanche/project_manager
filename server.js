@@ -34,10 +34,10 @@ app.get('/registration', function (req, res) {
    res.sendFile( __dirname + "/view/" +"registration.html" ); 
 }) 
 
-//Запрос			
-app.get('/mainpage', function (req, res) {   
-   res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
-}) 
+// //Запрос			
+// app.get('/mainpage', function (req, res) {   
+   // res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
+// }) 
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function (req, res) {   
 
@@ -96,7 +96,7 @@ app.post('/login', urlencodedParser,function (req, res) {
 				 console.log(rows[0].password );
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
-             res.redirect("/mainpage");
+            res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
             // Все хорошо, возвращаем успешного пользователя
            // return done(null, rows[0]);			
 		
