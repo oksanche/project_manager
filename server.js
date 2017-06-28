@@ -39,7 +39,7 @@ app.get('/mainpage', function (req, res) {
    res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
 }) 
 //Запрос на регистрацию пользователя
-app.post('/projectmanager/registration', urlencodedParser, function (req, res) {   
+app.post('/registration', urlencodedParser, function (req, res) {   
 
 var email=req.body.email;
 var password=req.body.password;
@@ -73,7 +73,7 @@ var error={
 				console.log(err);
 				}
 				 res.send(JSON.stringify(error,"", 3));
-				 res.redirect("http://localhost:8080/projectmanager")
+				 res.redirect("/login");
 				});
 			}
 });
@@ -96,7 +96,8 @@ app.post('/login', urlencodedParser,function (req, res) {
 				 console.log(rows[0].password );
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
-             res.redirect(__dirname+"/mainpage")
+			var path = __dirname +"/mainpage";
+             res.redirect(path);
             // Все хорошо, возвращаем успешного пользователя
            // return done(null, rows[0]);			
 		
@@ -111,7 +112,7 @@ app.get('/index.html', function (req, res) {
     res.redirect('/login');
 });
 app.get('*', function(req, res){
-   res.status(404).send('Cтраница не найдена');
+   res.status(404).send('Cтраница не найдена! Возможно, запрашиваемая Вами страница была перенесена или удалена. Или Вы допустили небольшую опечатку при вводе адреса, поэтому еще раз внимательно проверьте.');
 });
 
 //Информация о сервере
