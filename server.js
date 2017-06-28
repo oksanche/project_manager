@@ -25,15 +25,19 @@ var connection = mysql.createConnection({
 	  console.log("Connected!");
  }) 
  
-app.get('/projectmanager', function (req, res) {   
+app.get('/login', function (req, res) {   
    res.sendFile( __dirname + "/" +"index.html" ); 
 }) 
 
 //Запрос			
-app.get('/projectmanager/registration', function (req, res) {   
+app.get('/registration', function (req, res) {   
    res.sendFile( __dirname + "/view/" +"registration.html" ); 
 }) 
 
+//Запрос			
+app.get('/mainpage', function (req, res) {   
+   res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
+}) 
 //Запрос на регистрацию пользователя
 app.post('/projectmanager/registration', urlencodedParser, function (req, res) {   
 
@@ -92,7 +96,7 @@ app.post('/login', urlencodedParser,function (req, res) {
 				 console.log(rows[0].password );
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
-             res.redirect("http://localhost:8080/view/mainpage.html")
+             res.redirect(__dirname+"/mainpage")
             // Все хорошо, возвращаем успешного пользователя
            // return done(null, rows[0]);			
 		
@@ -100,11 +104,14 @@ app.post('/login', urlencodedParser,function (req, res) {
 	})
 
 app.get('/', function (req, res) {
-    res.redirect('/projectmanager');
+    res.redirect('/login');
 });
 
+app.get('/index.html', function (req, res) {
+    res.redirect('/login');
+});
 app.get('*', function(req, res){
-  res.send(404);
+   res.status(404).send('Cтраница не найдена');
 });
 
 //Информация о сервере
