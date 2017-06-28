@@ -1,8 +1,8 @@
-  body {
+body {
 	margin: 0;
-	}
-	
-  header{
+}
+
+header{
 	width: 100%;
 	text-align: center; 
 	background: linear-gradient(to top, #27217C, #362CC0);
@@ -10,48 +10,46 @@
 	box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 	margin-top: -20px;
 	linear-gradient(to top, #27217C, #382AA1);
-	}
-	
-  nav {
+}
+
+nav {
 	width: 270px;
 	height: 690px;
 	background: #1A1538;	
 	color: #ECECEE;
-	}
-	
- .headp {
+}
+
+.headp {
 	text-align: right;
 	margin-right: 40px;
 	margin-top: -39px;
 	color: #DD3869;
-	}
-	
- .headh {
+}
+
+.headh {
 	text-align: left;
 	margin-left: 35px;
 	margin-top: -42px;
 	color: #f4e3ab;
-	}
+}
 
- .logo {
+.logo {
 	text-align: right;
 	margin-right: 190px;
 	margin-top: -34px;
 	color: #f4e3ab;
-	}
-	
- A:visited {
-        color: pink;
-        }
-   
- A:hover {
-        color: red;
-        }
+}
 
- .search {
+.search {
 	margin-top: -675px;
 	margin-left: 20px;
 	margin-bottom: -80px;
-    }
+}
 
-    
+A:visited {
+	color: pink;
+}
+
+A:hover {
+	color: red;
+}
