@@ -80,19 +80,33 @@ var error={
 app.post('/login', urlencodedParser,function (req, res) {   
 			var email=req.body.email;
 			var password=req.body.password;
-
+			
+			var error={
+				code:0;
+				message:""
+			};
+			
          connection.query("SELECT * FROM `tbluser` WHERE `varchUserEmail` = '" + email + "'", function(err,rows){
 			if (err){
+				error.code=-1;
+				error.message=err;
+				res.send(JSON.stringify(error,"", 3));
 				console.log(err);
 			}
                
-			 if (!rows.length) {               
+			 if (!rows.length) { 
+			    error.code=-1;
+				error.message="Нет такого пользователя";
+				res.send(JSON.stringify(error,"", 3));				
              console.log('нет такого пользователя');
 			 //message
 			} 
 				
              // если пользователь найден, но пароль неверен
             if (!( rows[0].varchUserPassword == password)){
+				error.code=-1;
+				error.message="Неверный пароль";	
+				res.send(JSON.stringify(error,"", 3));
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
 			else {
