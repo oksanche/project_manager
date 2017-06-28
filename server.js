@@ -34,10 +34,7 @@ app.get('/registration', function (req, res) {
    res.sendFile( __dirname + "/view/" +"registration.html" ); 
 }) 
 
-// //Запрос			
-// app.get('/mainpage', function (req, res) {   
-   // res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
-// }) 
+ 
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function (req, res) {   
 
@@ -55,7 +52,7 @@ var error={
 			 if (err)	
 				 console.log(err);				
                  error.message=err;
-				
+				 res.send(JSON.stringify(error,"", 3));
 		//Ошибка: если результат select-запроса не пуст: пользователь уже существует		
 			 
 			 if (rows.length) {		
@@ -71,7 +68,7 @@ var error={
 				if (err){
 				console.log(err);
 				}
-				 res.send(JSON.stringify(error,"", 3));
+			
 				 res.redirect("/login");
 				});
 			}
@@ -82,7 +79,7 @@ app.post('/login', urlencodedParser,function (req, res) {
 			var password=req.body.password;
 			
 			var error={
-				code:0;
+				code:0,
 				message:""
 			};
 			
@@ -90,14 +87,14 @@ app.post('/login', urlencodedParser,function (req, res) {
 			if (err){
 				error.code=-1;
 				error.message=err;
-				res.send(JSON.stringify(error,"", 3));
 				console.log(err);
 			}
                
 			 if (!rows.length) { 
 			    error.code=-1;
 				error.message="Нет такого пользователя";
-				res.send(JSON.stringify(error,"", 3));				
+				res.status(500);
+			
              console.log('нет такого пользователя');
 			 //message
 			} 
@@ -105,9 +102,13 @@ app.post('/login', urlencodedParser,function (req, res) {
              // если пользователь найден, но пароль неверен
             if (!( rows[0].varchUserPassword == password)){
 				error.code=-1;
-				error.message="Неверный пароль";	
-				res.send(JSON.stringify(error,"", 3));
-               console.log("НЕВЕРНЫЙ ПАРОЛЬ");
+				
+			  	res.redirect("/login");
+				
+				//error.message="Неверный пароль";	
+
+			//	res.send(JSON.stringify(error,"", 3));
+             //  console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
 			else {
             res.sendFile( __dirname + "/view/" +"mainpage.html" ); 

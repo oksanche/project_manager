@@ -17,8 +17,8 @@
       <input class="submit" type="submit" value="Войти" name="autorization">
       </form>
 	  <div ng-app="Errors" ng-controller="errorsController">  
-		<div ng-repeat="data in errors" ng-controller="errorsController"> 
-			<p>{{data.message}}</p> 
+		<div ng-controller="errorsController"> 
+			<p>{{data.errors}}</p> 
 		</div> 
 	  </div> 	
       <hr>
@@ -26,14 +26,20 @@
 	  var app = angular.module('Errors', []); 
 
 	app.controller('errorsController', function($scope, $http) { 
-		$http.get("/server.js").then(function (response) {
-		
-		if (response.data.error.code != 0)
-			$scope.errors = response.data.message; 
-		}); 
-	}); 
-	
-	
+
+	// Пример простого запроса GET:
+$http.get('/login').
+  success(function(data, status, headers, config) {
+    // Этот обратный вызов будет вызываться асинхронно,
+    // когда получен ответ
+	 $scope.errors = "";  
+  }).
+  error(function(data, status, headers, config) {
+    // Вызывается асинхронно, если происходит ошибка
+    // или сервер возвращает ответ со статусом ошибки
+	$scope.errors = response.data.error.message; 
+});
+
 	</script> 
      <a href="./registration"> Зарегистрироваться</a>
     </center>
