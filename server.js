@@ -42,8 +42,8 @@ var password=req.body.password;
 var firstname=req.body.firstname;
 var lastname=req.body.lastname;
 var error={
-	message:"";
-}
+	message:""
+};
 // Найдем пользователя чей find email совпадает с email формы	
        connection.query("select * from tbluser where varchUserEmail = '"+email+"'", function(err,rows){
 
@@ -103,10 +103,9 @@ app.get('/', function (req, res) {
     res.redirect('/projectmanager');
 });
 
-app.get('*', function (req, res) {
-   console.log("404");
+app.get('*', function(req, res){
+  res.send(404);
 });
-
 
 //Информация о сервере
 var server = app.listen(8080, function () { 
