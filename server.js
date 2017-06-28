@@ -58,8 +58,7 @@ var error={
 				
 		//Ошибка: если результат select-запроса не пуст: пользователь уже существует		
 			 
-			 if (rows.length) {
-				
+			 if (rows.length) {		
                  console.log("ЗАНЯТО");
 				 error.message="Такой email уже занят. Попробуйте снова";
 				 res.send(JSON.stringify(error,"", 3));
@@ -88,15 +87,17 @@ app.post('/login', urlencodedParser,function (req, res) {
 			}
                
 			 if (!rows.length) {               
-             console.log(rows[0]);
+             console.log('нет такого пользователя');
+			 //message
 			} 
 				
              // если пользователь найден, но пароль неверен
             if (!( rows[0].varchUserPassword == password)){
-				 console.log(rows[0].password );
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
+			else {
             res.sendFile( __dirname + "/view/" +"mainpage.html" ); 
+			}
             // Все хорошо, возвращаем успешного пользователя
            // return done(null, rows[0]);			
 		
