@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `tblproject` (
   `bigintUserId` bigint(20) NOT NULL COMMENT 'Создатель проекта',
   PRIMARY KEY (`bigintProjectId`),
   KEY `bigintUserId` (`bigintUserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Проект'  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Проект' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `tbltask` (
   `bigintProjectId` bigint(20) NOT NULL COMMENT 'Какому проекту принадлежит задача',
   PRIMARY KEY (`bigintTaskId`),
   KEY `bigintProjectId` (`bigintProjectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Задача' ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Задача' AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `tbluser` (
   `varchUserPassword` varchar(255) NOT NULL COMMENT 'Пароль',
   PRIMARY KEY (`bigintUserId`),
   UNIQUE KEY `varchUserEmail` (`varchUserEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Пользователь'  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Пользователь'  AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `tbluserhastask` (
   `datetimeUserHasTaskEnd` datetime DEFAULT NULL COMMENT 'Дата и время окончания выполнения задачи',
   KEY `bigintUserId` (`bigintUserId`,`bigintTaskId`),
   KEY `bigintTaskId` (`bigintTaskId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Задачи, выполняемые пользователем';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Задачи, выполняемые пользователем' AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `tblusersinprojects` (
   PRIMARY KEY (`bigintUsersInProjectId`),
   KEY `bigintUserId` (`bigintUserId`,`bigintProjectId`),
   KEY `bigintProjectId` (`bigintProjectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Участие пользователей в проектах' ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Участие пользователей в проектах'  AUTO_INCREMENT=1;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
