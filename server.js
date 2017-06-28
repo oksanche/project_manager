@@ -96,8 +96,7 @@ app.post('/login', urlencodedParser,function (req, res) {
 				 console.log(rows[0].password );
                console.log("НЕВЕРНЫЙ ПАРОЛЬ");
 			}
-			var path = __dirname +"/mainpage";
-             res.redirect(path);
+             res.redirect("/mainpage");
             // Все хорошо, возвращаем успешного пользователя
            // return done(null, rows[0]);			
 		
