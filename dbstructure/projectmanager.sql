@@ -105,12 +105,6 @@ ALTER TABLE `tbltask`
   ADD CONSTRAINT `tbltask_ibfk_1` FOREIGN KEY (`bigintProjectId`) REFERENCES `tblproject` (`bigintProjectId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `tbluser`
---
-ALTER TABLE `tbluser`
-  ADD CONSTRAINT `tbluser_ibfk_1` FOREIGN KEY (`bigintUserId`) REFERENCES `tblproject` (`bigintUserId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Ограничения внешнего ключа таблицы `tbluserhastask`
 --
 ALTER TABLE `tbluserhastask`
