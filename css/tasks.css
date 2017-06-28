@@ -1,0 +1,38 @@
+.tasks {
+ display:inline-block;
+ width: 500px;
+}
+
+.wid {
+	width: 400px;
+}
+
+ hr {
+	width: 1000px;
+}
+
+.my_task {
+	width: 335px;
+}
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+	margin-left: 0px;
+}
+
+.but_1 {
+	width: 180px;	
+}
+
+.but_2 {
+	width: 110px;
+}
+
+.but_3 {
+	width: 140px;
+}
+
+.but_4 {
+	width: 130px;
+}
