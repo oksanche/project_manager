@@ -8,13 +8,9 @@ app.use('/view', express.static('css'));
 
 var bodyParser = require('body-parser');
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use( bodyParser.json() );  
 
-// Create application/x-www-form-urlencoded parser 
 var urlencodedParser = bodyParser.urlencoded({ extended: false }) 
-
-var passport = require('passport');
-var LocalStategy = require('passport-local').Strategy;
 
 var mysql = require('mysql');
 
@@ -28,6 +24,7 @@ var connection = mysql.createConnection({
 	  if (err) throw err;
 	  console.log("Connected!");
  }) 
+ 
 app.get('/projectmanager', function (req, res) {   
    res.sendFile( __dirname + "/" +"index.html" ); 
 }) 
@@ -102,6 +99,13 @@ app.post('/login', urlencodedParser,function (req, res) {
 		});
 	})
 
+app.get('/', function (req, res) {
+    res.redirect('/projectmanager');
+});
+
+app.get('*', function (req, res) {
+   console.log("404");
+});
 
 
 //Информация о сервере
