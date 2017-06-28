@@ -6,15 +6,14 @@
   <body>
     <header><h1>Добро пожаловать в Project Manager!</h1></header>
 
-    <center class="center">
+    <center class="center" method = "POST"> 
       <p>Доступ к данным разрешен только зарегистрированным пользователям</p>
       <hr>
       <h2> Авторизация </h2>
-      <form accept-charset="utf-8">
+      <form accept-charset="utf-8" >
       <input class="text" type="email" placeholder="Логин" name="useremail" required><br>
       <input class="text" type="password" placeholder="Пароль" name="userpassword" required pattern="[A-Za-zА-Яа-яЁё0-9]"><br>
-      <input class="submit" type="button" value="Войти"
-             onclick="window.location = './view/mainpage.html';" name="autorization">
+      <input class="submit" type="submit" value="Войти" name="autorization">
       </form>
       <hr>
 
