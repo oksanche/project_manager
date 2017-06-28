@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angula.."></script> 
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <title>Main Page</title>
   <body>
@@ -15,8 +16,25 @@
       <input class="text" type="password" placeholder="Пароль" name="password" required><br>
       <input class="submit" type="submit" value="Войти" name="autorization">
       </form>
+	  <div ng-app="Errors" ng-controller="errorsController">  
+		<div ng-repeat="data in errors" ng-controller="errorsController"> 
+			<p>{{data.message}}</p> 
+		</div> 
+	  </div> 	
       <hr>
+      <script>
+	  var app = angular.module('Errors', []); 
 
+	app.controller('errorsController', function($scope, $http) { 
+		$http.get("/server.js").then(function (response) {
+		
+		if (response.data.error.code != 0)
+			$scope.errors = response.data.message; 
+		}); 
+	}); 
+	
+	
+	</script> 
      <a href="./registration"> Зарегистрироваться</a>
     </center>
   </body>
