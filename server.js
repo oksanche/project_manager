@@ -100,7 +100,7 @@ app.post('/mainpage', urlencodedParser, function(req, res) {
 
         if (err) {
             res.redirect("/login");
-            console.log(err);
+			console.log(err);
         }
 
         if (!rows.length) {

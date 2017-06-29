@@ -9,23 +9,23 @@
   <center class="center">
     <p>Пожалуйста, заполните все поля</p>
     <hr>
-    <form accept-charset="utf-8">
+    <form method="POST" accept-charset="utf8" action="/registration">
       <table>
         <tr>
           <td> Имя: </td>
-          <td> <input class="text" type="text" name="firstname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
+          <td> <input class="text" type="text" name="firstname"  pattern="[A-Za-zА-Яа-яЁё]{1,255}" required> </td>
         </tr>
         <tr>
           <td> Фамилия: </td>
-          <td> <input class="text" type="text" name="userlastname"  pattern="[A-Za-zА-Яа-яЁё]" required> </td>
+          <td> <input class="text" type="text" name="lastname"  pattern="[A-Za-zА-Яа-яЁё]{1,255}" required> </td>
         </tr>
         <tr>
           <td> E-mail: </td>
-          <td> <input class="text" name="useremail" type="email" required> </td>
+          <td> <input class="text" name="email" type="email" required> </td>
         </tr>
         <tr>
           <td> Пароль: </td>
-          <td> <input class="text" type="text" name="userpassword"  pattern="[A-Za-zА-Яа-яЁё0-9]{255}" required> </td>
+          <td> <input class="text" type="password" name="password"  pattern="[A-Za-zА-Яа-яЁё0-9]{1,255}" required> </td>
         </tr>
       </table>
       <input class="submit" type="submit" value="Зарегистрироваться" name="registration">

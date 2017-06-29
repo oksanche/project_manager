@@ -7,6 +7,10 @@
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
 
+	console.log(email);
+	console.log(password);
+	console.log(firstname);
+	console.log(lastname);
     // Найдем пользователя чей email совпадает с email формы	
     db.query("select * from tbluser where varchUserEmail = '" + email + "'", function(err, rows) {
 
