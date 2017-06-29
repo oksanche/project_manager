@@ -19,6 +19,13 @@ var db = require('./modules/db');
 var registrate = require('./modules/registration');
 // Модуль авторизации пользователя в системе
 var login = require('./modules/login');
+
+var server = app.listen(8080, function() {
+    var host = server.address().address
+    var port = server.address().port
+    console.log("ProjectManager app listening at http://%s:%s", host, port)
+})
+
 app.get('/login', function(req, res) {
 
     if (req.cookies.user === undefined) {
@@ -46,16 +53,19 @@ app.get('/new_project.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "new_project.html");
 })
 
-app.post('/mainpage/newproject', function(req, res) {
+app.post('/mainpage/newproject', urlencodedParser, function(req, res) {
     var id = parseInt(req.cookies.userid);
-    var name = req.body.projectname;
-    var insertQuery = "INSERT INTO tblproject ( varchProjectName, bigintUserId ) values ('" + name + "','" + id + "')";
+    var projectname = req.body.projectname;
+	console.log(req.body.projectname);
+    var insertQuery = "INSERT INTO tblproject ( varchProjectName, bigintUserId ) values ('" + projectname + "','" + id + "')";
 
     db.query(insertQuery, function(err, rows) {
         if (err) {
             console.log(err);
         }
+	res.redirect('/mainpage');
     });
+	
 })
 
 app.get('/tasks.html', function(req, res) {
@@ -142,8 +152,3 @@ app.get('*', function(req, res) {
 });
 
 
-var server = app.listen(8080, function() {
-    var host = server.address().address
-    var port = server.address().port
-    console.log("ProjectManager app listening at http://%s:%s", host, port)
-})
