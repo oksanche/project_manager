@@ -6,7 +6,20 @@
   <title>Main Page</title>
   <body>
     <header><h1>Добро пожаловать в Project Manager!</h1></header>
-
+     <script>
+       function getCookie(name) {
+  
+         var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ));
+         return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+       
+       if(getCookie('user') != 1) {
+         document.getElementById('error').innerHTML = "Вы не вошли в систему. Попробуйте еще раз.";
+       } else {
+         document.getElementById('error').innerHTML = "";
+        </script>
     <center class="center"> 
       <p>Доступ к данным разрешен только зарегистрированным пользователям</p>
       <hr>
@@ -16,7 +29,10 @@
       <input class="text" type="password" placeholder="Пароль" name="password" required><br>
       <input id="submit" type="submit" value="Войти" name="autorization">
       </form>	
+      <p id="error"></p>
       <hr>
+      
+      
      <a href="./registration"> Зарегистрироваться</a>
     </center>
   </body>
