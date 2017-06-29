@@ -116,7 +116,7 @@ app.post('/mainpage', urlencodedParser, function(req, res) {
             res.redirect("/login");
         } else {
             res.cookie('userid', rows[0].bigintUserId);
-            res.cookie('username', rows[0].varchUserFirstName + " " + rows[0].varchUserFirstName);
+            res.cookie('username', rows[0].varchUserFirstName + " " + rows[0].varchUserLastName);
             res.cookie('user', '1');
             res.redirect("/mainpage");
         }
