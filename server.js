@@ -52,15 +52,6 @@ app.get('/statistics.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "statistics.html");
 })
 
-
-app.get('/new_project.html', function(req, res) {
-    res.sendFile(__dirname + "/view/" + "new_project.html");
-})
-
-app.post('/mainpage/newproject', urlencodedParser, function(req, res) {
-  newproject(db, req, res);
-})
-
 app.get('/tasks.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "tasks.html");
 })
@@ -107,6 +98,17 @@ app.get('/mainpage', function(req, res) {
 //Запрос на авторизацию и на переход на главную страницу
 app.post('/mainpage', urlencodedParser, function(req, res) {
     login(db,req,res);   
+})
+
+/*========= ГЛАВНАЯ СТРАНИЦА С СОДЕРЖИМЫМ "Cоздать проект" ===========*/ 
+
+// Подгружаем в основной блок главной страницы содержимое 
+app.get('/new_project.html', function(req, res) { 
+res.sendFile(__dirname + "/view/" + "new_project.html"); 
+}) 
+// Обрабатываем запрос на создание проекта 
+app.post('/mainpage/newproject', urlencodedParser, function(req, res) { 
+newproject(db, req, res); 
 })
 
 /*==================== ВЫЙТИ =============================*/
