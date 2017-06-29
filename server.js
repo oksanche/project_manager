@@ -12,6 +12,8 @@ app.use(cookieParser());
 
 app.use(express.static('public'));
 app.use('/css', express.static('css'));
+app.use('/modules', express.static('modules'));
+
 
 // Модуль, устанавливающий соединение с БД 
 var db = require('./modules/db');
