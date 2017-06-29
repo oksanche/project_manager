@@ -15,7 +15,7 @@ app.use('/css', express.static('css'));
 
 // Модуль, устанавливающий соединение с БД 
 var db = require('./modules/db');
-
+var registrate = require('./modules/registration');
 app.get('/login', function(req, res) {
 
     if (req.cookies.user === undefined) {
@@ -55,6 +55,7 @@ app.get('/registration', function(req, res) {
     } else {
         res.sendFile(__dirname + "/view/" + "registration.html");
     }
+	
 })
 
 app.get('/statistics.html', function(req, res) {
@@ -72,7 +73,6 @@ app.post('/mainpage/newproject', function(req, res) {
     var insertQuery = "INSERT INTO tblproject ( varchProjectName, bigintUserId ) values ('" + name + "','" + id + "')";
 
     db.query(insertQuery, function(err, rows) {
-
         if (err) {
             console.log(err);
         }
@@ -88,40 +88,7 @@ app.get('/administration.html', function(req, res) {
 
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function(req, res) {
-
-    var email = req.body.email;
-    var password = req.body.password;
-    var firstname = req.body.firstname;
-    var lastname = req.body.lastname;
-
-    // Найдем пользователя чей find email совпадает с email формы	
-    db.query("select * from tbluser where varchUserEmail = '" + email + "'", function(err, rows) {
-
-        // Произошли любые другие ошибки
-        if (err)
-            console.log(err);
-        error.message = err;
-        res.send(JSON.stringify(error, "", 3));
-        //Ошибка: если результат select-запроса не пуст: пользователь уже существует		
-
-        if (rows.length) {
-            console.log("Такой email уже занят. Попробуйте снова");
-            error.message = "Такой email уже занят. Попробуйте снова";
-            res.send(JSON.stringify(error, "", 3));
-        } else {
-
-            var insertQuery = "INSERT INTO tbluser ( varchUserEmail,varchUserFirstName,varchUserLastName, varchUserPassword ) values ('" + email + "','" + firstname + "','" + lastname + "','" + password + "')";
-
-            db.query(insertQuery, function(err, rows) {
-
-                if (err) {
-                    console.log(err);
-                }
-
-                res.redirect("/login");
-            });
-        }
-    });
+   registrate(db,req);
 })
 app.post('/mainpage', urlencodedParser, function(req, res) {
 
