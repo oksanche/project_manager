@@ -1,18 +1,9 @@
-.tasks {
- display:inline-block;
- width: 500px;
+hr {
+	width: 1000px;
 }
 
 .wid {
 	width: 400px;
-}
-
- hr {
-	width: 1000px;
-}
-
-.my_task {
-	width: 335px;
 }
 
 .checkbox {
