@@ -20,7 +20,7 @@
         //Если результат select-запроса не пуст (пользователь уже существует) ,сигнализируем об ошибке,		
         if (rows.length) {
             console.log("Такой email уже занят. Попробуйте снова");
-			 // res.redirect("/registration");
+		 res.redirect("/registration");
         } else {
 		//иначе сохраняем пользователя в БД
             var insertQuery = "INSERT INTO tbluser ( varchUserEmail,varchUserFirstName,varchUserLastName, varchUserPassword ) values ('" + email + "','" + firstname + "','" + lastname + "','" + password + "')";
