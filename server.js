@@ -79,12 +79,22 @@ app.get('/registration', function (req, res) {
    res.sendFile( __dirname + "/view/" +"statistics.html" ); 
 }) 
 
+
  app.get('/new_project.html', function (req, res) {   
    res.sendFile( __dirname + "/view/" +"new_project.html" ); 
 }) 
 
- app.post('/new_project.html', function (req, res) {   
-   res.sendFile( __dirname + "/view/" +"new_project.html" ); 
+ app.post('/mainpage/newproject', function (req, res) {   
+   var id =parseInt(req.cookies.userid);
+   var name=req.body.projectname;
+   var insertQuery = "INSERT INTO tblproject ( varchProjectName, bigintUserId ) values ('" + name +"','"+ id +"')";					
+				
+				connection.query(insertQuery, function(err,rows){
+				
+				if (err){
+				console.log(err);
+				}
+				});
 }) 
 
  app.get('/tasks.html', function (req, res) {   
@@ -155,11 +165,12 @@ app.post('/mainpage', urlencodedParser, function (req, res) {
              // если пользователь найден, но пароль неверен
             if (!( rows[0].varchUserPassword == password)){
 				 console.log("Неверный пароль");
+				 res.cookie('user', '0');
 		         res.redirect("/login");	
 			}
 			else {
-				// req.session.email = request.body.email;
-				// res.cookie('id', rows[0].varchUserId);
+				 res.cookie('userid', rows[0].bigintUserId);
+				 res.cookie('username', rows[0].varchUserFirstName+" "+rows[0].varchUserFirstName);
 				 res.cookie('user', '1');
 				 res.redirect("/mainpage");
 				 }
@@ -187,6 +198,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/logout', function (req, res) {
+	res.cookie('userid', undefined);
 	 res.cookie('user', undefined);
 	 console.log(req.cookies.user);
      res.redirect('/login');

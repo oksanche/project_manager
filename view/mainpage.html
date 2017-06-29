@@ -19,21 +19,41 @@
     function load_new_project() {
       $('#content').load('new_project.html');
     }
+	// возвращает cookie с именем name, если есть, если нет, то undefined
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+// возвращает cookie с именем name, если есть, если нет, то undefined
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+	  function innerData(){  
+	  //getCookie("username");
+      document.getElementById('username').innerHTML=getCookie("username");
+	  }
   </script>
 </head>
-<body>
+<body onload="innerData();">
   <header class="myheader">
     <a onclick="load_administration()" class="mybut">Управление</a>
     <a onclick="load_statistics()" class="mybut">Статистика</a>
     <a onclick="load_tasks()" class="mybut ">Задачи</a>
   </header>
-  <h3 class="logo">Имя Фамилия</h3>
+
+  <h3  id="username" class="logo"></h3>
+
   <h3 class="headh">Project Manager</h3>
   <p class="headp myp"><a class="mybut" href="/logout">ВЫЙТИ</a></p>
   <nav id="cd-vertical-nav">
     <br><br>
     <ul>
-      <li onclick="load_new_project()">Создать проект</li>
+      <a onclick="load_new_project()">Создать проект</a>
       <li>Участие
         <ul>
           <li>Проект 1</li>
