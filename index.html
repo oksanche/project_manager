@@ -8,14 +8,12 @@
     <header><h1>Добро пожаловать в Project Manager!</h1></header>
      <script>
        function getCookie(name) {
-  
-         var matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-          ));
-         return matches ? decodeURIComponent(matches[1]) : undefined;
-        }
+        var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+          if (r) return r[2];
+         else return "";
+       }
        
-       if(getCookie('user') != 1) {
+       if(getCookie("user") != 1) {
          document.getElementById('error').innerHTML = "Вы не вошли в систему. Попробуйте еще раз.";
        } else {
          document.getElementById('error').innerHTML = "";
