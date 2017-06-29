@@ -1,6 +1,6 @@
 // Автор: Оксана Панфилова
 
-module.exports= function (db, req, res) 
+module.exports = function (db, req, res) 
    //Т.к. куки в строке делаем число: в БД хранится в виде числа
     var id = parseInt(req.cookies.userid);
     var projectname = req.body.projectname;
