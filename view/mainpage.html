@@ -33,7 +33,7 @@ function getCookie(name) {
     ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-function innerData(){
+function innerData(){  
   document.getElementById('username').innerHTML=getCookie("username");
 }
 </script>
@@ -50,7 +50,8 @@ function innerData(){
   <nav id="cd-vertical-nav">
     <br><br>
     <ul>
-      <a onclick="load_new_project()">Создать проект</a>
+      <p class="pmargin"><a class="whitea" onclick="load_new_project()">Создать проект</a></p>
+      <p></p>
       <li>Участие
         <ul>
           <li>Проект 1</li>
@@ -58,6 +59,7 @@ function innerData(){
           <li>Проект 3</li>
         </ul>
       </li>
+      <p></p>
       <li>Управление
         <ul>
           <li>Проект 1</li>
