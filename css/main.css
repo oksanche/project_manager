@@ -7,7 +7,7 @@ li {
 }
 
 nav {
-	margin-top: -5px;
+	margin-top: -25px;
 	width: 270px;
 	height: 690px;
 	background: #1A1538;	
@@ -30,6 +30,18 @@ a.mybut {
 	height: 20px;
 }
 
+a.mybut3 {
+	margin-top: 13px;
+}
+
+.mybut4 {
+	margin-top: -30px;
+}
+
+.searcher {
+	margin-top: 10px;
+}
+
 a.mybut:hover { 
 	background: linear-gradient(#f5ae00, #f59500) #f5ae00;
 }
@@ -44,11 +56,11 @@ a.mybut:active {
 
 .myheader {
 	width: 100%;
-	text-align: center; 
-	background: linear-gradient(to top, #27217C, #362CC0);
+	text-align: center;
 	height: 80px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 	margin-top: -20px;
+	background: #1A1538;
 }
 
 .myp {
@@ -65,10 +77,11 @@ a.mybut:active {
 .headh {
 	text-align: left;
 	margin-left: 35px;
-	margin-top: -49px;
+	margin-top: -38px;
 	color: #f4e3ab;
 	color: #ffffff;
 	height: 29px;
+	font-size: 25px;
 }
 
 .logo {
@@ -99,10 +112,6 @@ a.mybut:active {
 	font-family: Tahoma; 
 	text-align: center;
 	shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.whitea:hover {
-	color: white;
 }
 
 .pmargin {

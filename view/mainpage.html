@@ -40,17 +40,17 @@ function innerData(){
 </head>
 <body onload="innerData();">
   <header class="myheader">
-    <a onclick="load_administration()" class="mybut">Управление</a>
+    <a style="margin-left: 34%;" onclick="load_administration()" class="mybut">Управление</a>
     <a onclick="load_statistics()" class="mybut">Статистика</a>
     <a onclick="load_tasks()" class="mybut ">Задачи</a>
+    <a style="margin-left: 24%;" class="mybut" href="/logout">Выйти</a>
   </header>
   <h3  id="username" class="logo">Имя Фамилия</h3>
   <h3 class="headh">Project Manager</h3>
-  <p class="headp myp"><a class="mybut" href="/logout">ВЫЙТИ</a></p>
   <nav id="cd-vertical-nav">
     <br><br>
     <ul>
-      <p class="pmargin"><a class="whitea" onclick="load_new_project()">Создать проект</a></p>
+      <p class="pmargin"><a class="mybut mybut3" onclick="load_new_project()">Создать проект</a></p>
       <p></p>
       <li>Участие
         <ul>
@@ -70,10 +70,13 @@ function innerData(){
     </ul>
   </nav>
   <form class="search">
-    <input type="search" id="mytext" name="q" pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
+    <input type="search" class="searcher" id="mytext" name="q" pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
     <input type="submit" value="Найти"></p>
   </form>
   <div id="content"> 
   </div>
+  <script>
+    alert(document.cookie);
+  </script>
 </body>
 </html>
