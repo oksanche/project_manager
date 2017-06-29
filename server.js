@@ -66,7 +66,13 @@ app.get('/mainpage', function (req, res) {
 }) 
 //Запрос			
 app.get('/registration', function (req, res) {   
-   res.sendFile( __dirname + "/view/" +"registration.html" ); 
+    if (req.cookies.user === '1') {
+        res.redirect("/mainpage");
+        return;
+    } 
+	else {
+		res.sendFile( __dirname + "/view/" +"registration.html"); 
+	}
 }) 
 
  app.get('/statistics.html', function (req, res) {   
