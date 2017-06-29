@@ -1,7 +1,7 @@
 //Автор: Панфилова Оксана
 
- module.exports= function (db, req) {
-var email = req.body.email;
+ module.exports= function (db, req, res) {
+    var email = req.body.email;
     var password = req.body.password;
 
     db.query("SELECT * FROM `tbluser` WHERE `varchUserEmail` = '" + email + "'", function(err, rows) {

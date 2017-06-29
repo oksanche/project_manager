@@ -1,6 +1,6 @@
  // Автор: Оксана Панфилова
  
- module.exports= function (db, req) {
+ module.exports= function (db, req, res) {
  // Данные для регистрации
     var email = req.body.email;
     var password = req.body.password;

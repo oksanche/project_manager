@@ -81,7 +81,7 @@ app.get('/registration', function(req, res) {
 
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function(req, res) {
-   registrate(db,req);
+   registrate(db,req,res);  
 })
 /*==================== ГЛАВНАЯ СТРАНИЦА =============================*/
 // Переход на главную страницу
@@ -104,7 +104,7 @@ app.get('/mainpage', function(req, res) {
 
 //Запрос на авторизацию и на переход на главную страницу
 app.post('/mainpage', urlencodedParser, function(req, res) {
-    login(req, db);   
+    login(db,req,res);   
 })
 
 /*==================== ВЫЙТИ =============================*/
