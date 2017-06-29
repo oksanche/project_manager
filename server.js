@@ -19,6 +19,8 @@ var db = require('./modules/db');
 var registrate = require('./modules/registration');
 // Модуль авторизации пользователя в системе
 var login = require('./modules/login');
+// Модуль ля созания нвого проекта
+var newproject = require('./modules/newproject');
 
 var server = app.listen(8080, function() {
     var host = server.address().address
@@ -54,18 +56,7 @@ app.get('/new_project.html', function(req, res) {
 })
 
 app.post('/mainpage/newproject', urlencodedParser, function(req, res) {
-    var id = parseInt(req.cookies.userid);
-    var projectname = req.body.projectname;
-	console.log(req.body.projectname);
-    var insertQuery = "INSERT INTO tblproject ( varchProjectName, bigintUserId ) values ('" + projectname + "','" + id + "')";
-
-    db.query(insertQuery, function(err, rows) {
-        if (err) {
-            console.log(err);
-        }
-	res.redirect('/mainpage');
-    });
-	
+  newproject(db, req, res);
 })
 
 app.get('/tasks.html', function(req, res) {
