@@ -11,36 +11,12 @@
       <p>Доступ к данным разрешен только зарегистрированным пользователям</p>
       <hr>
       <h2> Авторизация </h2>
-      <form accept-charset="utf-8" method = "POST">
+      <form method="POST" accept-charset="utf8" action="/mainpage">
       <input class="text" type="email" placeholder="Email" name="email" required><br>
       <input class="text" type="password" placeholder="Пароль" name="password" required><br>
-      <input class="submit" type="submit" value="Войти" name="autorization">
-      </form>
-	  <div ng-app="Errors" ng-controller="errorsController">  
-		<div ng-controller="errorsController"> 
-			<p>{{data.errors}}</p> 
-		</div> 
-	  </div> 	
+      <input id="submit" type="submit" value="Войти" name="autorization">
+      </form>	
       <hr>
-      <script>
-	  var app = angular.module('Errors', []); 
-
-	app.controller('errorsController', function($scope, $http) { 
-
-	// Пример простого запроса GET:
-$http.get('/login').
-  success(function(data, status, headers, config) {
-    // Этот обратный вызов будет вызываться асинхронно,
-    // когда получен ответ
-	 $scope.errors = "";  
-  }).
-  error(function(data, status, headers, config) {
-    // Вызывается асинхронно, если происходит ошибка
-    // или сервер возвращает ответ со статусом ошибки
-	$scope.errors = response.data.error.message; 
-});
-
-	</script> 
      <a href="./registration"> Зарегистрироваться</a>
     </center>
   </body>
