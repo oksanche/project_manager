@@ -97,10 +97,6 @@ a.mybut:active {
 	shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-A:visited {
-	color: pink;
-}
-
 A:hover {
 	color: black;
 }
