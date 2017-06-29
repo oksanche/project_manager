@@ -15,7 +15,10 @@ app.use('/css', express.static('css'));
 
 // Модуль, устанавливающий соединение с БД 
 var db = require('./modules/db');
+// Модуль регистрации пользователя в системе
 var registrate = require('./modules/registration');
+// Модуль авторизации пользователя в системе
+var login = require('./modules/login');
 app.get('/login', function(req, res) {
 
     if (req.cookies.user === undefined) {
@@ -31,32 +34,8 @@ app.get('/login', function(req, res) {
         res.sendFile(__dirname + "/" + "index.html");
     }
 })
-app.get('/mainpage', function(req, res) {
 
-    if (req.cookies.user === undefined) {
-        res.cookie('user', '0');
-        console.log('setting cookie to false');
-    }
 
-    if (req.cookies.user === '1') {
-        res.sendFile(__dirname + "/view/" + "mainpage.html");
-        return;
-    } else {
-        res.redirect('/login');
-    }
-
-})
-//Запрос			
-app.get('/registration', function(req, res) {
-//  Запрещаем авторизированному пользователю перейти на страницу регистрации
-    if (req.cookies.user === '1') {
-        res.redirect("/mainpage");
-        return;
-    } else {
-        res.sendFile(__dirname + "/view/" + "registration.html");
-    }
-	
-})
 
 app.get('/statistics.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "statistics.html");
@@ -86,43 +65,57 @@ app.get('/administration.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "administration.html");
 })
 
+/*==================== РЕГИСТРАЦИЯ ==================================*/
+
+//  Переход на страницу "Регистрация"			
+app.get('/registration', function(req, res) {
+//  Запрещаем авторизированному пользователю перейти на страницу регистрации
+    if (req.cookies.user === '1') {
+		// На главную страницу
+        res.redirect("/mainpage");
+        return;
+    } else {
+        res.sendFile(__dirname + "/view/" + "registration.html");
+    }	
+})
+
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function(req, res) {
-   registrate(db,req,res);
+   registrate(db,req,res); 
 })
+/*==================== ГЛАВНАЯ СТРАНИЦА =============================*/
+// Переход на главную страницу
+app.get('/mainpage', function(req, res) {
+
+    if (req.cookies.user === undefined) {
+        res.cookie('user', '0');
+        console.log('setting cookie to false');
+    }
+    //Если пользователь авторизован, переходим на главную
+    if (req.cookies.user === '1') {
+        res.sendFile(__dirname + "/view/" + "mainpage.html");
+        return;
+    } else {
+		//Иначе
+        res.redirect('/login');
+    }
+})
+
+//Запрос на авторизацию и на переход на главную страницу
 app.post('/mainpage', urlencodedParser, function(req, res) {
-
-
-    var email = req.body.email;
-    var password = req.body.password;
-
-    db.query("SELECT * FROM `tbluser` WHERE `varchUserEmail` = '" + email + "'", function(err, rows) {
-
-        if (err) {
-            res.redirect("/login");
-			console.log(err);
-        }
-
-        if (!rows.length) {
-            res.redirect("/login");
-            console.log('Нет такого пользователя');
-            //message
-        }
-
-        // если пользователь найден, но пароль неверен
-        if (!(rows[0].varchUserPassword == password)) {
-            console.log("Неверный пароль");
-            res.cookie('user', '0');
-            res.redirect("/login");
-        } else {
-            res.cookie('userid', rows[0].bigintUserId);
-            res.cookie('username', rows[0].varchUserFirstName + " " + rows[0].varchUserLastName);
-            res.cookie('user', '1');
-            res.redirect("/mainpage");
-        }
-    });
+    login(db,req,res);   
 })
 
+/*==================== ВЫЙТИ =============================*/
+app.get('/logout', function(req, res) {
+    // Очищаем куки.
+    res.cookie('userid', undefined);
+    res.cookie('user', undefined);
+    // Перенаправляем на страницу авторизации пользователя
+    res.redirect('/login');
+});
+
+/*=======================================================*/
 app.get('/', function(req, res) {
 
     console.log('Мы в /');
@@ -142,17 +135,7 @@ app.get('/', function(req, res) {
         res.redirect('/login');
     }
 });
-
-// Выход из системы
-app.get('/logout', function(req, res) {
-    // Очищаем куки.
-    res.cookie('userid', undefined);
-    res.cookie('user', undefined);
-    // Перенаправляем на страницу авторизации пользователя
-    res.redirect('/login');
-});
-
-//Обращаемся по адресу, которого нет на сервере
+/*===================== 404 ==============================*/
 app.get('*', function(req, res) {
 	// Посылаем страницу с информацией об ошибке
     res.status(404).sendFile(__dirname + "/view/" + "404.html");
