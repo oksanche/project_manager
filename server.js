@@ -88,7 +88,7 @@ app.get('/administration.html', function(req, res) {
 
 //Запрос на регистрацию пользователя
 app.post('/registration', urlencodedParser, function(req, res) {
-   registrate(db,req);
+   registrate(db,req,res);
 })
 app.post('/mainpage', urlencodedParser, function(req, res) {
 
