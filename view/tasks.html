@@ -9,9 +9,23 @@
 	<link rel="stylesheet" type="text/css" href="../css/tasks.css">
 	<link rel="stylesheet" type="text/css" href="../css/statistics.css">
 	<script language="javascript" type="text/javascript">
-		function message() {
+		function message1(c, c2, t) {
 			if(confirm('Завершить выполнение задачи?')) {
-				document.getElementById('first').disabled="disabled";
+				document.getElementById(c).disabled="disabled";
+				document.getElementById(c2).disabled="disabled";
+				document.getElementById(t).style.color="green";
+			}
+		}
+		function message2(c) {
+			if(confirm('Отказаться от задачи?')) {
+			}
+		}
+		function message3() {
+			if(confirm('Удалить задачу из проекта?')) {
+			}
+		}
+		function message4() {
+			if(confirm('Взять задачу себе?')) {
 			}
 		}
 	</script>
@@ -26,25 +40,43 @@
 				<div>
 					<div class="tasks"> 
 						<table border=1> 
-						<th class="wid">Мои задачи</th><th>Статус</th><th></th> 
-							<tr><td class="my_task">Помыть посуду</td><td> <input class="submit checkbox" id="first" type="checkbox" onclick="message();"> </td> <td></td></tr> 
-							<tr><td class="my_task">Вынести мусор</td><td> <input class="submit checkbox" type="checkbox"> </td> <td></td></tr> 
-							<tr><td class="my_task">Погладить щенка</td><td> <input class="submit checkbox" type="checkbox"> </td> <td></td></tr> 
+						<th class="wid">Мои задачи</th>
+						<th>Решено</th>
+						<th>Отказ</th> 
+							<tr>
+							<td class="my_task" id="t1">Разделить проект на модули</td>
+							<td><input class="submit checkbox" id="c1" type="checkbox" onclick="message1('c1', 'c2', 't1');"></td>
+							<td><input class="submit checkbox" id="c2" type="checkbox" onclick="message2('c2');"></td></tr> 
+							<tr>
+							<td class="my_task" id="t2">Написать README.md</td>
+							<td><input class="submit checkbox" id="c3" type="checkbox" onclick="message1('c3', 'c4', 't2');"></td>
+							<td><input class="submit checkbox" id="c4" type="checkbox" onclick="message2('c4');"></td></tr> 
+							<tr>
+							<td class="my_task" id="t3">Привести стили в порядок</td>
+							<td><input class="submit checkbox" id="c5" type="checkbox" onclick="message1('c5', 'c6', 't3');"> </td>
+							<td><input class="submit checkbox" id="c6" type="checkbox" onclick="message2('c6');"></td></tr> 
 						</table> 	
 					</div> 
 					<div class="tasks"> 
 						<table border=1> 
-							<th colspan="2" class="wid">Свободные задачи</th> 
-							<tr><td class="my_task">Сходить на митинг</td><td> <input class="submit checkbox" type="checkbox"> </td></tr> 
-							<tr><td class="my_task">Почистить унитаз</td><td> <input class="submit checkbox" type="checkbox"> </td></tr> 
-							<tr><td class="my_task">Подраться с гопниками</td><td> <input class="submit checkbox" type="checkbox"> </td></tr>  
+							<th class="wid">Свободные задачи</th> 
+							<th>Взять</th>
+							<th>Удалить</th>
+							<tr>
+							<td class="my_task">Написать модуль login</td>
+							<td><input class="submit checkbox" type="checkbox" onclick="message4()"> </td>
+							<td><input class="submit checkbox" type="checkbox" onclick="message3()"> </td></tr> 
+							<tr>
+							<td class="my_task">Наладить работу сервера</td>
+							<td><input class="submit checkbox" type="checkbox" onclick="message4()"> </td>
+							<td><input class="submit checkbox" type="checkbox" onclick="message3()"> </td></tr> 
+							<tr><td class="my_task">Поправить взаимодействие страниц</td>
+							<td><input class="submit checkbox" type="checkbox" onclick="message4()"> </td>
+							<td> <input class="submit checkbox" type="checkbox" onclick="message3()"> </td></tr>  
 						</table>
 					</div>
 				</div><br>
-				<p><input class="submit but_1" type="button" value="Отказаться от задачи">
-					<input class="submit but_2" type="button" value="Взять себе">
-					<input class="submit but_3" type="button" value="Удалить задачу">
-					<input class="submit but_4" type="button" value="Новая задача"></p>
+				<p><input class="submit but_4" type="button" value="Новая задача"></p>
 				</form>
 				<hr>
 			</center>
