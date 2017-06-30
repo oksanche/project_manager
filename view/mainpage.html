@@ -8,6 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/modules/mainpage_getlistofprojects.js"></script>
+	<script src="/modules/mainpage_innerData.js"></script>
     <script language="javascript" type="text/javascript">
       function load_administration() {
         $('#content').load('administration.html');
@@ -20,23 +21,6 @@
       }
       function load_new_project() {
         $('#content').load('new_project.html');
-      }
-      // возвращает cookie с именем name, если есть, если нет, то undefined
-      function getCookie(name) {
-      var matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-      ));
-      return matches ? decodeURIComponent(matches[1]) : undefined;
-      }
-      // возвращает cookie с именем name, если есть, если нет, то undefined
-      function getCookie(name) {
-      var matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-      ));
-      return matches ? decodeURIComponent(matches[1]) : undefined;
-      }
-      function innerData(){  
-      document.getElementById('username').innerHTML=getCookie("username");
       }
     </script>
   </head>
@@ -58,7 +42,7 @@
           <li class="li">
             Участие
             <ol class="rounded">
-              <li><a href="">Вывод не реаизован, т.к. пока не реализована функция добавления участников в проект</a>
+              <li><a href="">БВывод не реаизован, т.к. пока не реализована функция добавления участников в проект</a>
               <li><a href="">Проект 2</a>
               <li><a href="">Проект 3</a>
             </ol>
