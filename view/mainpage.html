@@ -1,3 +1,5 @@
+<!--Автор: Ерофеев Илья-->
+<!--Автор: Худорожникова Мария-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,30 +10,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/modules/mainpage_getlistofprojects.js"></script>
-	<script src="/modules/mainpage_innerData.js"></script>
-    <script language="javascript" type="text/javascript">
-      function load_administration() {
-        $('#content').load('administration.html');
-      }
-      function load_statistics() {
-        $('#content').load('statistics.html'); 
-      }
-      function load_tasks() {
-        $('#content').load('tasks.html');
-      }
-      function load_new_project() {
-        $('#content').load('new_project.html');
-      }
-    </script>
+	   <script src="/modules/mainpage_innerData.js"></script>
+    <script src="/modules/mainpage_loads.js"></script>
   </head>
   <body onload="innerData();">
     <header class="myheader">
-      <a style="margin-left: 34%;" onclick="load_administration()" class="mybut">Управление</a>
+      <a onclick="load_administration()" class="mybut formargin2">Управление</a>
       <a onclick="load_statistics()" class="mybut">Статистика</a>
       <a onclick="load_tasks()" class="mybut ">Задачи</a>
-      <a style="margin-left: 24%;" class="mybut" href="/logout">Выйти</a>
+      <a class="mybut formargin" href="/logout">Выйти</a>
     </header>
-    <h3  id="username" class="logo">Имя Фамилия</h3>
+    <h3 id="username" class="logo">Имя Фамилия</h3>
     <h3 class="headh">Project Manager</h3>
     <nav id="cd-vertical-nav">
       <br><br>
@@ -42,7 +31,7 @@
           <li class="li">
             Участие
             <ol class="rounded">
-              <li><a href="">БВывод не реаизован, т.к. пока не реализована функция добавления участников в проект</a>
+              <li><a href="">Вывод не реаизован</a>
               <li><a href="">Проект 2</a>
               <li><a href="">Проект 3</a>
             </ol>

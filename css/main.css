@@ -1,3 +1,5 @@
+/* Автор: Ерофеев илья */
+
 body {
 	margin: 0;
 }
@@ -125,6 +127,14 @@ a.mybut:active {
 	margin-top: -675px;
 	margin-left: 16px;
 	margin-bottom: -80px;
+}
+
+.formargin {
+	margin-left: 30%;
+}
+
+.formargin2 {
+	margin-left: 27%;
 }
 
 .rounded {
