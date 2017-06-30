@@ -62,7 +62,7 @@ Project Manager Application
       
       3) Запустите командую строку MySql. Выполните все команды, описанные в папке dbstructure, в файле projectmaneger.sql
       
-      4) В папке modules, в файле db.js укажите свои данные в полях 'host', 'user', 'password'. Модуль создаст БД для Project Manager
+      4) В папке modules, в файле db.js укажите свои данные в полях 'host', 'user', 'password'. Модуль создает подключение к БД для Project Manager
 
 ЗАПУСК
 -----------
