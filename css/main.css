@@ -2,10 +2,6 @@ body {
 	margin: 0;
 }
 
-li {
-	list-style-type: none;
-}
-
 nav {
 	margin-top: -25px;
 	width: 270px;
@@ -15,6 +11,7 @@ nav {
 }
 
 a.mybut {
+	font-size: 17px;
 	margin-top: 30px;
 	display: inline-block;
 	color: white;
@@ -32,14 +29,16 @@ a.mybut {
 
 a.mybut3 {
 	margin-top: 13px;
+	margin-left: 6px;
 }
 
 .mybut4 {
 	margin-top: -30px;
 }
 
-.searcher {
-	margin-top: 10px;
+.li {
+	list-style-type: none;
+	font-size: 20px;
 }
 
 a.mybut:hover { 
@@ -72,7 +71,7 @@ a.mybut:active {
 	margin-right: 17px;
 	margin-top: -78px;
 	color: #f4e3ab;
-}
+}	
 
 .headh {
 	text-align: left;
@@ -96,27 +95,83 @@ a.mybut:active {
 	color: #f4e3ab;
 }
 
-.search {
-	margin-top: -675px;
-	margin-left: 20px;
-	margin-bottom: -80px;
-}
-
 #mytext {
 	border: 1px solid #cccccc; 
 	border-radius: 4px; 
 	background: #ffffff !important; 
 	outline: none; 
 	height: 25px; 
-	width: 160px; 
+	width: 180px; 
 	font-family: Tahoma; 
 	text-align: center;
-	shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+.searcher {
+	margin-top: 10px;
+	margin-left: 30px;
 }
 
 .pmargin {
 	margin-top: 30px;
 	padding-bottom: 11px;
+}
+
+.proj_list {
+	max-width: 240px;
+}
+
+.search {
+	margin-top: -675px;
+	margin-left: 16px;
+	margin-bottom: -80px;
+}
+
+.rounded {
+	counter-reset: li; 
+	list-style: none; 
+	font: 14px "Trebuchet MS", "Lucida Sans";
+	padding: 0;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.rounded a {
+	position: relative;
+	display: block;
+	padding: .6em .4em .2em 2em;
+	margin: .6em 0;
+	background: #DAD2CA;
+	color: #444;
+	text-decoration: none;
+	border-radius: .3em;
+	transition: .3s ease-out;
+	max-height: 19px;
+}
+
+.rounded a:hover {
+	background: #E9E4E0;
+}
+
+.rounded a:hover:before {
+	transform: rotate(360deg);
+}
+
+.rounded a:before {
+	content: counter(li);
+	counter-increment: li;
+	position: absolute;
+	left: -1.3em;
+	top: 50%;
+	margin-top: -1.3em;
+	background: #8FD4C1;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	border: .3em solid white;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 2em;
+	transition: all .3s ease-out;
 }
 
 A:hover {
