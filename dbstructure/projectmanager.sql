@@ -11,6 +11,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `projectmanager`;
 -- --------------------------------------------------------
 
+USE projectmanager;
 --
 -- Структура таблицы `tblproject`
 --
