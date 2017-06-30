@@ -15,7 +15,7 @@ Project Manager Application
       view/              html-файлы страниц
       index.html         начальная страница
       README.md          этот файл
-      server.js          сервер node js
+      server.js          файл сервера node.js
 
 ТРЕБОВАНИЯ
 ------------
@@ -27,7 +27,7 @@ Project Manager Application
 
 Прежде, чем запустить приложение, совершите следующие действия:
 
-      1) Убедитесь, что на вашем компьютере установлен MySql версии 5.5.25
+      1) Убедитесь, что на вашем компьютере установлен MySQL версии 5.5.25
       Ссылка на скачивание:
       http://www.mysql.ru/download/
 
