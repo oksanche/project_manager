@@ -66,8 +66,8 @@
           <p></p>
           <li class="li" ng-app="listofprojects" ng-controller="listofprojectsController">
             Управление
-            <ol class="rounded" ng-repeat="project in projects">
-              <li><a href="">{{project.varchProjectName}}</a>
+            <ol class="rounded">
+              <li ng-repeat="project in projects"><a href="">{{project.varchProjectName}}</a>
             </ol>
           </li>
         </ul>
