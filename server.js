@@ -21,7 +21,7 @@ var db = require('./modules/db');
 var registrate = require('./modules/registration');
 // Модуль авторизации пользователя в системе
 var login = require('./modules/login');
-// Модуль ля созания нвого проекта
+// Модуль для создания нвого проекта
 var newproject = require('./modules/newproject');
 
 var listofprojects = require('./modules/listofprojects');
