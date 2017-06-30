@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <title>Личный кабинет</title>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script language="javascript" type="text/javascript">
-    function load_administration() {
-      $('#content').load('administration.html');
-    }
-    function load_statistics() {
-      $('#content').load('statistics.html'); 
-    }
-    function load_tasks() {
-      $('#content').load('tasks.html');
-    }
-    function load_new_project() {
-      $('#content').load('new_project.html');
-    }
-// возвращает cookie с именем name, если есть, если нет, то undefined
-function getCookie(name) {
-  var matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-// возвращает cookie с именем name, если есть, если нет, то undefined
-function getCookie(name) {
-  var matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-function innerData(){  
-  document.getElementById('username').innerHTML=getCookie("username");
-}
-</script>
-</head>
-<body onload="innerData();">
-  <header class="myheader">
-    <a style="margin-left: 34%;" onclick="load_administration()" class="mybut">Управление</a>
-    <a onclick="load_statistics()" class="mybut">Статистика</a>
-    <a onclick="load_tasks()" class="mybut ">Задачи</a>
-    <a style="margin-left: 24%;" class="mybut" href="/logout">Выйти</a>
-  </header>
-  <h3  id="username" class="logo">Имя Фамилия</h3>
-  <h3 class="headh">Project Manager</h3>
-  <nav id="cd-vertical-nav">
-    <br><br>
-
-    <div class="proj_list">
-    <ul>
-      <p class="pmargin"><a class="mybut mybut3" onclick="load_new_project()">Создать проект</a></p>
-      <p></p>
-      <li class="li">Участие
-        <ol class="rounded">
-          <li><a href="">Проект 1</a>
-          <li><a href="">Проект 2</a>
-          <li><a href="">Проект 3</a>
-        </ol>
-      </li>
-      <p></p>
-      <li class="li">Управление
-        <ol class="rounded">
-          <li><a href="">Проект 1</a>
-          <li><a href="">Проект 2</a>
-          <li><a href="">Проект 3</a>
-        </ol>
-      </li>
-    </ul>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Личный кабинет</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/modules/mainpage_getlistofprojects.js"></script>
+    <script language="javascript" type="text/javascript">
+      function load_administration() {
+        $('#content').load('administration.html');
+      }
+      function load_statistics() {
+        $('#content').load('statistics.html'); 
+      }
+      function load_tasks() {
+        $('#content').load('tasks.html');
+      }
+      function load_new_project() {
+        $('#content').load('new_project.html');
+      }
+      // возвращает cookie с именем name, если есть, если нет, то undefined
+      function getCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+      // возвращает cookie с именем name, если есть, если нет, то undefined
+      function getCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+      function innerData(){  
+      document.getElementById('username').innerHTML=getCookie("username");
+      }
+    </script>
+  </head>
+  <body onload="innerData();">
+    <header class="myheader">
+      <a style="margin-left: 34%;" onclick="load_administration()" class="mybut">Управление</a>
+      <a onclick="load_statistics()" class="mybut">Статистика</a>
+      <a onclick="load_tasks()" class="mybut ">Задачи</a>
+      <a style="margin-left: 24%;" class="mybut" href="/logout">Выйти</a>
+    </header>
+    <h3  id="username" class="logo">Имя Фамилия</h3>
+    <h3 class="headh">Project Manager</h3>
+    <nav id="cd-vertical-nav">
+      <br><br>
+      <div class="proj_list">
+        <ul>
+          <p class="pmargin"><a class="mybut mybut3" onclick="load_new_project()">Создать проект</a></p>
+          <p></p>
+          <li class="li">
+            Участие
+            <ol class="rounded">
+              <li><a href="">Проект 1</a>
+              <li><a href="">Проект 2</a>
+              <li><a href="">Проект 3</a>
+            </ol>
+          </li>
+          <p></p>
+          <li class="li" ng-app="listofprojects" ng-controller="listofprojectsController">
+            Управление
+            <ol class="rounded" ng-repeat="project in projects">
+              <li><a href="">{{project.varchProjectName}}</a>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <form class="search">
+      <input type="search" class="searcher" id="mytext" name="q" pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
+    </form>
+    <div id="content"> 
     </div>
-
-  </nav>
-  <form class="search">
-    <input type="search" class="searcher" id="mytext" name="q" pattern="[A-Za-zА-Яа-яЁё0-9\s]" placeholder="Поиск"> 
-  </form>
-  <div id="content"> 
-  </div>
-</body>
+  </body>
 </html>

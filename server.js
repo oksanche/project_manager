@@ -24,6 +24,8 @@ var login = require('./modules/login');
 // Модуль ля созания нвого проекта
 var newproject = require('./modules/newproject');
 
+var listofprojects = require('./modules/listofprojects');
+
 var server = app.listen(8080, function() {
     var host = server.address().address
     var port = server.address().port
@@ -45,8 +47,6 @@ app.get('/login', function(req, res) {
         res.sendFile(__dirname + "/" + "index.html");
     }
 })
-
-
 
 app.get('/statistics.html', function(req, res) {
     res.sendFile(__dirname + "/view/" + "statistics.html");
@@ -100,15 +100,20 @@ app.post('/mainpage', urlencodedParser, function(req, res) {
     login(db,req,res);   
 })
 
+/*======== ГЛАВНАЯ СТРАНИЦА: ОТВЕТ ЗАПРОС СПИСКА ПРОЕКТОВ =================*/
+app.get('/mainpage/listofprojects',function(req, res) {
+	   listofprojects(db,req,res);	
+})
+	
 /*========= ГЛАВНАЯ СТРАНИЦА С СОДЕРЖИМЫМ "Cоздать проект" ===========*/ 
 
 // Подгружаем в основной блок главной страницы содержимое 
 app.get('/new_project.html', function(req, res) { 
-res.sendFile(__dirname + "/view/" + "new_project.html"); 
+	res.sendFile(__dirname + "/view/" + "new_project.html"); 
 }) 
 // Обрабатываем запрос на создание проекта 
 app.post('/mainpage/newproject', urlencodedParser, function(req, res) { 
-newproject(db, req, res); 
+	newproject(db, req, res); 
 })
 
 /*==================== ВЫЙТИ =============================*/
@@ -145,5 +150,3 @@ app.get('*', function(req, res) {
 	// Посылаем страницу с информацией об ошибке
     res.status(404).sendFile(__dirname + "/view/" + "404.html");
 });
-
-
