@@ -64,3 +64,7 @@ tr td:last-child {
 table {
 	width: 400px;
 }
+
+.verttop {
+	vertical-align: top;
+}
